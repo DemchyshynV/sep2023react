@@ -1,6 +1,7 @@
-import {useForm} from "react-hook-form";
-import {carService} from "../services/carService";
 import {useEffect} from "react";
+import {useForm} from "react-hook-form";
+
+import {carService} from "../services/carService";
 
 const CarForm = ({setTrigger, carForUpdate, setCarForUpdate}) => {
     const {register, reset, handleSubmit, formState: {isValid, errors}, setValue} = useForm({
@@ -9,9 +10,9 @@ const CarForm = ({setTrigger, carForUpdate, setCarForUpdate}) => {
 
     useEffect(() => {
         if (carForUpdate) {
-            setValue('brand', carForUpdate.brand, {shouldValidate:true})
-            setValue('price', carForUpdate.price, {shouldValidate:true})
-            setValue('year', carForUpdate.year, {shouldValidate:true})
+            setValue('brand', carForUpdate.brand, {shouldValidate: true})
+            setValue('price', carForUpdate.price, {shouldValidate: true})
+            setValue('year', carForUpdate.year, {shouldValidate: true})
         }
     }, [carForUpdate]);
     const save = async (car) => {
@@ -21,7 +22,7 @@ const CarForm = ({setTrigger, carForUpdate, setCarForUpdate}) => {
 
     }
     const update = (car) => {
-      carService.updateById()
+        carService.updateById()
     }
     return (
         <form onSubmit={handleSubmit(save)}>
