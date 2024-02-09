@@ -13,11 +13,15 @@ const CarsContainer = () => {
         carService.getAll().then(({data}) => setCars(data))
     }, [trigger]);
 
+    const changeTrigger =()=>{
+        setTrigger(prev=>!prev)
+    }
+
     return (
         <div>
-            <CarForm setTrigger={setTrigger} carForUpdate={carForUpdate} setCarForUpdate={setCarForUpdate}/>
+            <CarForm changeTrigger={changeTrigger} carForUpdate={carForUpdate} setCarForUpdate={setCarForUpdate}/>
             <hr/>
-            <Cars cars={cars} setCarForUpdate={setCarForUpdate}/>
+            <Cars cars={cars} setCarForUpdate={setCarForUpdate} changeTrigger={changeTrigger}/>
         </div>
     );
 };
