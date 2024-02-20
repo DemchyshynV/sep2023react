@@ -1,9 +1,10 @@
 import {useForm} from "react-hook-form";
 import {joiResolver} from "@hookform/resolvers/joi";
-import {registerValidator} from "../../validators";
-import {authService} from "../../services";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
+
+import {registerValidator} from "../../validators";
+import {authService} from "../../services";
 
 const RegisterForm = () => {
     const [error, setError] = useState(null)

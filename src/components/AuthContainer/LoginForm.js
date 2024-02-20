@@ -1,7 +1,8 @@
 import {useForm} from "react-hook-form";
 import {useState} from "react";
-import {authService} from "../../services";
 import {useNavigate} from "react-router-dom";
+
+import {authService} from "../../services";
 
 const LoginForm = () => {
     const {handleSubmit, register} = useForm();

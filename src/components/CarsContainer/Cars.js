@@ -1,22 +1,27 @@
 import {useEffect, useState} from "react";
-import {carService} from "../../services";
+import {useNavigate, useSearchParams} from "react-router-dom";
+
+import {authService, carService} from "../../services";
 import {Car} from "./Car";
-import {useAppContext} from "../../hooks/useAppContext";
-import {useSearchParams} from "react-router-dom";
+import {useAppContext} from "../../hooks";
 
 const Cars = () => {
     const [cars, setCars] = useState([])
     const [query, setQuery] = useSearchParams({page: '1'});
     const [prevNext, setPrevNext] = useState({prev: null, next: null})
     const {trigger} = useAppContext();
+    const navigate = useNavigate();
 
     useEffect(() => {
         carService.getAll(query.get('page')).then(({data}) => {
             setCars(data.items)
             setPrevNext({prev: data.prev, next: data.next})
+        }).catch(() => {
+            authService.deleteToken()
+            navigate('/login')
         })
 
-    }, [trigger, query.get('page')])
+    }, [trigger, navigate, query])
 
     const prev = () => {
         setQuery(prev => {

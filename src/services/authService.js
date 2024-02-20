@@ -9,7 +9,7 @@ const authService = {
     },
 
     async login(user) {
-        const {data:{access}} = await apiService.post(urls.auth.login, user);
+        const {data: {access}} = await apiService.post(urls.auth.login, user);
         this.setToken(access)
     },
     me() {

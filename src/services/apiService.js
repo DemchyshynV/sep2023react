@@ -5,10 +5,10 @@ import {authService} from "./authService";
 
 const apiService = axios.create({baseURL});
 
-apiService.interceptors.request.use(request=>{
+apiService.interceptors.request.use(request => {
     const token = authService.getToken();
 
-    if (token){
+    if (token) {
         request.headers.Authorization = `Bearer ${token}`
     }
 

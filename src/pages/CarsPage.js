@@ -1,5 +1,4 @@
-import {Cars} from "../components/CarsContainer/Cars";
-import {CarForm} from "../components/CarsContainer/CarForm";
+import {CarForm, Cars} from "../components";
 
 const CarsPage = () => {
     return (

@@ -1,6 +1,7 @@
 import {useForm} from "react-hook-form";
+
 import {carService} from "../../services";
-import {useAppContext} from "../../hooks/useAppContext";
+import {useAppContext} from "../../hooks";
 
 const CarForm = () => {
     const {register, reset, handleSubmit} = useForm();
@@ -8,7 +9,7 @@ const CarForm = () => {
 
     const save = async (car) => {
         await carService.create(car)
-        // reset()
+        reset()
         changeTrigger()
     }
 

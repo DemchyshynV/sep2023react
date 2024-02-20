@@ -1,5 +1,6 @@
 import {useContext} from "react";
-import {Context} from "../hoc/ContextProvider";
+
+import {Context} from "../hoc";
 
 const useAppContext = () => useContext(Context)
 
